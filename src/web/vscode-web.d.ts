@@ -49,12 +49,18 @@ declare module "vscode-web/workbench" {
     readonly force?: boolean;
   }
 
+  export interface IInitialColorTheme {
+    readonly themeType: "light" | "dark" | "hcLight" | "hcDark";
+    readonly colors?: Record<string, string>;
+  }
+
   export interface IWorkbenchConstructionOptions {
     readonly workspaceProvider?: IWorkspaceProvider;
     readonly additionalBuiltinExtensions?: readonly (string | UriComponents)[];
     readonly productConfiguration?: Record<string, unknown>;
     readonly defaultLayout?: IDefaultLayout;
     readonly configurationDefaults?: Record<string, unknown>;
+    readonly initialColorTheme?: IInitialColorTheme;
   }
 
   export interface IDisposable {

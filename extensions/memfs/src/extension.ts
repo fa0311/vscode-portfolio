@@ -2,6 +2,7 @@ import * as vscode from "vscode";
 import { MemFS } from "./fileSystemProvider";
 import { PORTFOLIO_FILES, PORTFOLIO_ROOT } from "./portfolio";
 import { applyStartupLayout } from "./startupLayout";
+import { registerThemeToggle } from "./themeToggle";
 
 const SCHEME = "memfs";
 const textEncoder = new TextEncoder();
@@ -12,6 +13,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
     vscode.workspace.registerFileSystemProvider(SCHEME, memFs, { isCaseSensitive: true }),
   );
   seed(memFs);
+  registerThemeToggle(context);
 
   const readme = vscode.Uri.from({ scheme: SCHEME, path: `${PORTFOLIO_ROOT}/README.md` });
   await applyStartupLayout(readme);

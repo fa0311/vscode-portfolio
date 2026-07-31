@@ -49,14 +49,25 @@ class WorkspaceProvider implements IWorkspaceProvider {
 const memfsExtensionUrl = new URL("./extensions/memfs", document.baseURI);
 const vscodeBaseUrl = new URL("./vscode-dist", document.baseURI).href;
 
+const prefersDark = matchMedia("(prefers-color-scheme: dark)").matches;
+
 create(document.body, {
   workspaceProvider: WorkspaceProvider.fromLocation(),
   // The memfs extension opens README.md itself once it has seeded the
   // workspace. Opening it here via defaultLayout would deadlock on first
   // visit: editor restore waits for the memfs provider, which only registers
   // after startup finishes.
+  // Paint the shell in the OS colour scheme before the theme service boots,
+  // so first paint never flashes the wrong background.
+  initialColorTheme: { themeType: prefersDark ? "dark" : "light" },
   configurationDefaults: {
     "workbench.startupEditor": "none",
+    // Follow the OS colour scheme, and keep following it when it changes.
+    "window.autoDetectColorScheme": true,
+    "workbench.preferredLightColorTheme": "Default Light Modern",
+    "workbench.preferredDarkColorTheme": "Default Dark Modern",
+    "editor.fontSize": 13,
+    "markdown.preview.fontSize": 13,
     // Handed to the memfs extension, which applies the layout with vscode
     // commands — the extension runs in a worker and cannot see the viewport.
     "portfolio.startupLayout":
