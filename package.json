@@ -1,8 +1,8 @@
 {
-  "name": "vscode-web-memfs",
+  "name": "vscode-portfolio",
   "version": "0.1.0",
   "private": true,
-  "description": "VS Code for the Web with an in-memory file system, served as static files",
+  "description": "Portfolio site running on VS Code for the Web with an in-memory file system",
   "license": "MIT",
   "type": "module",
   "scripts": {

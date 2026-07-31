@@ -44,7 +44,7 @@ export const profile = {
 } as const satisfies Profile;
 `,
 
-  [`${PORTFOLIO_ROOT}/projects/vscode-web-memfs.md`]: `# vscode-web-memfs(このサイト)
+  [`${PORTFOLIO_ROOT}/projects/this-site.md`]: `# このサイト
 
 いま見ているこのサイトそのものです。
 

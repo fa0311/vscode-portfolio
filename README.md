@@ -1,4 +1,4 @@
-# vscode-web-memfs
+# vscode-portfolio
 
 VS Code for the Web の中でポートフォリオを閲覧・編集できるポートフォリオサイト。
 中身(自己紹介・プロジェクト等)は `extensions/memfs/src/portfolio.ts` で定義され、起動時にメモリ上ワークスペース `memfs:/portfolio` としてシードされます。
