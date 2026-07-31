@@ -9,7 +9,7 @@ export const PORTFOLIO_ROOT = "/portfolio";
 export const PORTFOLIO_FILES: Readonly<Record<string, string>> = {
   [`${PORTFOLIO_ROOT}/README.md`]: `# 👋 ふぁ / fa0311
 
-Web API のリバースエンジニアリングと自動化ツールを作っています。
+Flutter / TypeScript / Python が好き。
 
 - [TwitterInternalAPIDocument](https://github.com/fa0311/TwitterInternalAPIDocument) ★700+ — Twitter(X) 内部 API の解析・ドキュメント・SDK 群。nitter / twscrape / twikit などが直接依存
 - [DMMGamePlayerFastLauncher](https://github.com/fa0311/DMMGamePlayerFastLauncher) ★190+ — DMM Game Player 高速起動ランチャー
@@ -20,7 +20,6 @@ Web API のリバースエンジニアリングと自動化ツールを作って
 
 - GitHub: https://github.com/fa0311
 - X: https://x.com/faa0311
-- Blog: https://blog.yuki0311.com
 
 ---
 
