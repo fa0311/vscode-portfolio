@@ -1,0 +1,42 @@
+{
+  "name": "vscode-web-memfs",
+  "version": "0.1.0",
+  "private": true,
+  "description": "VS Code for the Web with an in-memory file system, served as static files",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "fetch-vscode": "node scripts/fetch-vscode.ts",
+    "build": "pnpm run fetch-vscode && pnpm run build:ext && pnpm run build:web",
+    "build:ext": "esbuild extensions/memfs/src/extension.ts --bundle --format=cjs --platform=browser --target=esnext --external:vscode --outfile=extensions/memfs/dist/extension.js",
+    "build:web": "esbuild src/web/main.ts --bundle --format=esm --platform=browser --target=esnext --external:vscode-web/workbench --outfile=assets/main.js",
+    "stage": "node scripts/stage.ts",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p src/web && tsc --noEmit -p extensions/memfs",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "lint": "oxlint",
+    "start": "pnpm run build && serve -l tcp://127.0.0.1:8080 .",
+    "preview": "pnpm run build && pnpm run stage && serve -l tcp://127.0.0.1:8080 dist-site",
+    "test": "pnpm run typecheck && pnpm run fmt:check && pnpm run lint"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.2",
+    "@types/vscode": "^1.125.0",
+    "esbuild": "^0.28.1",
+    "oxfmt": "^0.61.0",
+    "oxlint": "^1.76.0",
+    "serve": "^14.2.6",
+    "typescript": "^7.0.2",
+    "zod": "^4.4.3"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.12.0",
+      "onFail": "download"
+    }
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

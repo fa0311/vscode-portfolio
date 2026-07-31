@@ -1,0 +1,19 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.oxc": "explicit"
+  },
+  "[typescript][javascript][json][jsonc]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "search.exclude": {
+    "vscode-dist/**": true,
+    "dist-site/**": true,
+    "assets/**": true,
+    "extensions/memfs/dist/**": true
+  },
+  "files.watcherExclude": {
+    "**/vscode-dist/**": true,
+    "**/dist-site/**": true
+  }
+}

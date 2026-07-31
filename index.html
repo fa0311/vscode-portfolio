@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <title>VS Code Web (memfs)</title>
+    <link rel="icon" href="./vscode-dist/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="./vscode-dist/code-192.png" />
+    <link rel="manifest" href="./vscode-dist/manifest.json" />
+    <link rel="stylesheet" href="./vscode-dist/out/vs/workbench/workbench.web.main.internal.css" />
+    <style>
+      html {
+        background: #1f1f1f;
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "vscode-web/workbench": "./vscode-dist/out/vs/workbench/workbench.web.main.internal.js"
+        }
+      }
+    </script>
+  </head>
+
+  <body aria-label=""></body>
+
+  <script>
+    globalThis._VSCODE_FILE_ROOT = new URL("./vscode-dist/out/", document.baseURI).href;
+  </script>
+  <script src="./vscode-dist/out/nls.messages.js"></script>
+  <script type="module" src="./assets/main.js"></script>
+</html>

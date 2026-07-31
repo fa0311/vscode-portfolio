@@ -1,0 +1,30 @@
+{
+  "name": "memfs",
+  "displayName": "In-Memory File System",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Serves a memfs: workspace kept entirely in RAM",
+  "categories": [
+    "Other"
+  ],
+  "license": "MIT",
+  "publisher": "local",
+  "browser": "./dist/extension.js",
+  "contributes": {},
+  "activationEvents": [
+    "onFileSystem:memfs",
+    "onStartupFinished"
+  ],
+  "extensionKind": [
+    "web"
+  ],
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "capabilities": {
+    "virtualWorkspaces": true,
+    "untrustedWorkspaces": {
+      "supported": true
+    }
+  }
+}
