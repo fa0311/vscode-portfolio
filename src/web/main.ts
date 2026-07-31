@@ -57,6 +57,14 @@ create(document.body, {
   // after startup finishes.
   configurationDefaults: {
     "workbench.startupEditor": "none",
+    // Handed to the memfs extension, which applies the layout with vscode
+    // commands — the extension runs in a worker and cannot see the viewport.
+    "portfolio.startupLayout":
+      window.innerWidth >= 1300
+        ? "full"
+        : window.innerWidth >= 900
+          ? "preview-and-source"
+          : "preview",
   },
   additionalBuiltinExtensions: [
     {

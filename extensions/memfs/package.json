@@ -10,7 +10,23 @@
   "license": "MIT",
   "publisher": "local",
   "browser": "./dist/extension.js",
-  "contributes": {},
+  "contributes": {
+    "configuration": {
+      "title": "Portfolio",
+      "properties": {
+        "portfolio.startupLayout": {
+          "type": "string",
+          "enum": [
+            "preview",
+            "preview-and-source",
+            "full"
+          ],
+          "default": "full",
+          "description": "Initial layout applied when the portfolio workspace opens. The default is derived from the viewport width at boot."
+        }
+      }
+    }
+  },
   "activationEvents": [
     "onFileSystem:memfs",
     "onStartupFinished"

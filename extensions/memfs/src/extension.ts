@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 import { MemFS } from "./fileSystemProvider";
 import { PORTFOLIO_FILES, PORTFOLIO_ROOT } from "./portfolio";
+import { applyStartupLayout } from "./startupLayout";
 
 const SCHEME = "memfs";
 const textEncoder = new TextEncoder();
@@ -12,13 +13,8 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
   );
   seed(memFs);
 
-  // Land visitors on the README — but never steal focus from tabs they
-  // already have open (e.g. restored from a previous session).
-  const hasOpenTabs = vscode.window.tabGroups.all.some((group) => group.tabs.length > 0);
-  if (!hasOpenTabs) {
-    const readme = vscode.Uri.from({ scheme: SCHEME, path: `${PORTFOLIO_ROOT}/README.md` });
-    await vscode.window.showTextDocument(readme);
-  }
+  const readme = vscode.Uri.from({ scheme: SCHEME, path: `${PORTFOLIO_ROOT}/README.md` });
+  await applyStartupLayout(readme);
 }
 
 function seed(memFs: MemFS): void {
