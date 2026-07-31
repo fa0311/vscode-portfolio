@@ -64,14 +64,6 @@ create(document.body, {
     // Long lines scroll instead of wrapping. Markdown needs a
     // language-scoped setting on top; the extension applies it at startup.
     "editor.wordWrap": "off",
-    // Handed to the portfolio extension, which applies the layout with vscode
-    // commands — the extension runs in a worker and cannot see the viewport.
-    "portfolio.startupLayout":
-      window.innerWidth >= 1300
-        ? "full"
-        : window.innerWidth >= 900
-          ? "preview-and-source"
-          : "preview",
   },
   additionalBuiltinExtensions: [
     {
