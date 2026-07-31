@@ -11,51 +11,25 @@ export const PORTFOLIO_FILES: Readonly<Record<string, string>> = {
 
 Web API のリバースエンジニアリングと自動化ツールを作っています。
 
-- 🐦 Twitter(X) 内部 API の解析・ドキュメント・SDK 群(★700+)
+- 🐦 Twitter(X) 内部 API の解析・ドキュメント・SDK 群(★700+)— nitter などが直接依存
 - 🔧 公開リポジトリ 270+、OSS への外部貢献多数
-- 📝 Blog: https://blog.yuki0311.com
+- 🛠 Python / TypeScript / Dart、OpenAPI、GitHub Actions、セルフホスト
 
-## 歩き方
+## Projects
 
 | ファイル | 内容 |
 | --- | --- |
-| [about.ts](./about.ts) | プロフィール(型チェック可能) |
-| [projects/](./projects/) | 作ったもの・OSS 貢献 |
-| [skills.json](./skills.json) | 技術スタック |
-| [contact.md](./contact.md) | 連絡先 |
+| [twitter-internal-api.md](./projects/twitter-internal-api.md) | Twitter(X) 内部 API エコシステム |
+| [dmm-game-player-fast-launcher.md](./projects/dmm-game-player-fast-launcher.md) | DMM Game Player 高速ランチャー |
+| [automation-tools.md](./projects/automation-tools.md) | 自動化・セルフホストツール |
+| [oss.md](./projects/oss.md) | OSS 貢献・採用実績 |
+| [this-site.md](./projects/this-site.md) | このサイト |
 
-> このサイトは VS Code for the Web 上で動いています。ファイルはすべてメモリ上 —
-> 自由に編集して遊んでください。リロードすれば元通りです。
-> 仕組みは [projects/this-site.md](./projects/this-site.md) を参照。
-`,
+## Links
 
-  [`${PORTFOLIO_ROOT}/about.ts`]: `/**
- * プロフィール。このファイル自体が型チェックの通る自己紹介です。
- */
-interface Profile {
-	readonly name: string;
-	readonly handle: string;
-	readonly role: string;
-	readonly interests: readonly string[];
-	readonly links: Readonly<Record<string, string>>;
-}
-
-export const profile = {
-	name: "ふぁ",
-	handle: "fa0311",
-	role: "Software Engineer",
-	interests: [
-		"Web API リバースエンジニアリング",
-		"OpenAPI / SDK 生成",
-		"自動化 (GitHub Actions)",
-		"セルフホスト",
-	],
-	links: {
-		github: "https://github.com/fa0311",
-		x: "https://x.com/faa0311",
-		blog: "https://blog.yuki0311.com",
-	},
-} as const satisfies Profile;
+- GitHub: https://github.com/fa0311
+- X: https://x.com/faa0311
+- Blog: https://blog.yuki0311.com
 `,
 
   [`${PORTFOLIO_ROOT}/projects/twitter-internal-api.md`]: `# Twitter(X) Internal API エコシステム
@@ -88,17 +62,26 @@ export const profile = {
 - [docker-dtv-aio-server](https://github.com/fa0311/docker-dtv-aio-server) — 日本のデジタル TV 受信/録画/配信オールインワン Docker
 `,
 
-  [`${PORTFOLIO_ROOT}/projects/oss-contributions.md`]: `# OSS への貢献(抜粋)
+  [`${PORTFOLIO_ROOT}/projects/oss.md`]: `# OSS
+
+## 貢献(抜粋)
 
 - [openapi-generator](https://github.com/OpenAPITools/openapi-generator) — merged PR 25 件(Python クライアントの型改善ほか)
 - [Radiata](https://github.com/ddPn08/Radiata) — 73 commits(Stable Diffusion WebUI)
 - microsoft/vscode、flutter/packages、AUTOMATIC1111/stable-diffusion-webui — merged PR
 - ほか nitter / Nextcloud / ArchiveBox / wg-easy / RustDesk docs / KonomiTV など多数に修正 PR
+
+## 直接依存されている
+
+自作の Twitter(X) 内部 API ツール群は、以下のようなプロジェクトから直接利用されています。
+
+- [nitter](https://github.com/zedeus/nitter) / [twscrape](https://github.com/vladkens/twscrape) / [twikit](https://github.com/d60/twikit)
+- [twitter-monitor](https://github.com/BANKA2017/twitter-monitor) / [the-convocation/twitter-scraper](https://github.com/the-convocation/twitter-scraper) ほか
+
+一覧: [Contribute ⭐>100 リスト](https://github.com/stars/fa0311/lists/contribute-100)
 `,
 
   [`${PORTFOLIO_ROOT}/projects/this-site.md`]: `# このサイト
-
-いま見ているポートフォリオそのものです。
 
 - Microsoft 公式の VS Code web-standalone ビルドを**無改変**で静的配信
 - \`FileSystemProvider\` 拡張によるメモリ上ワークスペース(サーバー処理なし)
@@ -119,12 +102,5 @@ export const profile = {
 	],
 	"asOf": "2026-07"
 }
-`,
-
-  [`${PORTFOLIO_ROOT}/contact.md`]: `# Contact
-
-- GitHub: https://github.com/fa0311
-- X: https://x.com/faa0311
-- Blog: https://blog.yuki0311.com
 `,
 };
