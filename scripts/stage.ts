@@ -17,9 +17,9 @@ const targets: readonly string[] = [
   "index.html",
   "assets",
   "vscode-dist",
-  "extensions/memfs/package.json",
-  "extensions/memfs/package.nls.json",
-  "extensions/memfs/dist",
+  "extensions/portfolio/package.json",
+  "extensions/portfolio/package.nls.json",
+  "extensions/portfolio/dist",
 ];
 
 for (const target of targets) {

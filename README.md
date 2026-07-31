@@ -1,7 +1,7 @@
 # vscode-portfolio
 
 VS Code for the Web の中でポートフォリオを閲覧・編集できるポートフォリオサイト。
-中身(自己紹介・プロジェクト等)は `extensions/memfs/src/portfolio.ts` で定義され、起動時にメモリ上ワークスペース `memfs:/portfolio` としてシードされます。
+中身(自己紹介・プロジェクト等)は `extensions/portfolio/src/portfolio.ts` で定義され、起動時にメモリ上ワークスペース `memfs:/portfolio` としてシードされます。
 
 VS Code for the Web をブラウザ完結・完全オンメモリで動かす最小構成。
 サーバー処理なし(静的配信のみ)で、ワークスペースは `memfs:` スキームの RAM 上仮想ファイルシステム。ページをリロードすると全て消えます。
@@ -10,7 +10,7 @@ VS Code for the Web をブラウザ完結・完全オンメモリで動かす最
 
 - **vscode-dist/** — Microsoft 公式の [web-standalone ビルド](https://update.code.visualstudio.com/latest/web-standalone/stable)をそのまま展開したもの(無改変・gitignore)
 - **src/web/main.ts** — 起動ブートストラップ。import map 経由で workbench 本体を読み込み `create()` を呼ぶ
-- **extensions/memfs/** — `FileSystemProvider` API で `memfs:` を実装する Web 拡張([公式サンプル](https://github.com/microsoft/vscode-extension-samples/tree/main/fsprovider-sample)ベース)
+- **extensions/portfolio/** — サイトを動かす Web 拡張。`FileSystemProvider` で `memfs:` を実装([公式サンプル](https://github.com/microsoft/vscode-extension-samples/tree/main/fsprovider-sample)ベース)
 - 拡張ホスト iframe・webview も同一オリジンから配信するよう product 設定を上書きしており、外部 CDN に依存しない
 
 VS Code 本体のコードには一切手を入れていません。カスタマイズは拡張機能・起動オプション・product 設定の公式ポイントのみ。

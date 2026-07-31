@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 import { MemFS } from "./fileSystemProvider";
 import { PORTFOLIO_FILES, PORTFOLIO_ROOT } from "./portfolio";
+import { applyEditorDefaults } from "./editorDefaults";
 import { applyStartupLayout } from "./startupLayout";
 import { registerThemeToggle } from "./themeToggle";
 
@@ -14,6 +15,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
   );
   seed(memFs);
   registerThemeToggle(context);
+  await applyEditorDefaults();
 
   const readme = vscode.Uri.from({ scheme: SCHEME, path: `${PORTFOLIO_ROOT}/README.md` });
   await applyStartupLayout(readme);

@@ -1,9 +1,9 @@
 {
-  "name": "memfs",
-  "displayName": "In-Memory File System",
+  "name": "portfolio",
+  "displayName": "Portfolio",
   "version": "0.1.0",
   "private": true,
-  "description": "Serves a memfs: workspace kept entirely in RAM",
+  "description": "Runs the portfolio site: in-memory workspace, startup layout, theme toggle",
   "categories": [
     "Other"
   ],
@@ -11,6 +11,22 @@
   "publisher": "local",
   "browser": "./dist/extension.js",
   "contributes": {
+    "commands": [
+      {
+        "command": "portfolio.toggleTheme",
+        "title": "Toggle Light / Dark Theme",
+        "category": "Portfolio",
+        "icon": "$(color-mode)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "portfolio.toggleTheme",
+          "group": "navigation@-1"
+        }
+      ]
+    },
     "configuration": {
       "title": "Portfolio",
       "properties": {

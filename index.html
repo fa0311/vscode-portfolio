@@ -13,8 +13,15 @@
     <link rel="manifest" href="./vscode-dist/manifest.json" />
     <link rel="stylesheet" href="./vscode-dist/out/vs/workbench/workbench.web.main.internal.css" />
     <style>
+      /* Matches the workbench background of the theme picked for this OS
+         colour scheme, so the page never flashes before the workbench paints. */
       html {
-        background: #1f1f1f;
+        background: #f3f3f3;
+      }
+      @media (prefers-color-scheme: dark) {
+        html {
+          background: #1f1f1f;
+        }
       }
     </style>
     <script type="importmap">

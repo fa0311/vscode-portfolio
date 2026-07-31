@@ -10,7 +10,7 @@
     "vscode-dist/**": true,
     "dist-site/**": true,
     "assets/**": true,
-    "extensions/memfs/dist/**": true
+    "extensions/portfolio/dist/**": true
   },
   "files.watcherExclude": {
     "**/vscode-dist/**": true,

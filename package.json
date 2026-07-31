@@ -8,10 +8,10 @@
   "scripts": {
     "fetch-vscode": "node scripts/fetch-vscode.ts",
     "build": "pnpm run fetch-vscode && pnpm run build:ext && pnpm run build:web",
-    "build:ext": "esbuild extensions/memfs/src/extension.ts --bundle --format=cjs --platform=browser --target=esnext --external:vscode --outfile=extensions/memfs/dist/extension.js",
+    "build:ext": "esbuild extensions/portfolio/src/extension.ts --bundle --format=cjs --platform=browser --target=esnext --external:vscode --outfile=extensions/portfolio/dist/extension.js",
     "build:web": "esbuild src/web/main.ts --bundle --format=esm --platform=browser --target=esnext --external:vscode-web/workbench --outfile=assets/main.js",
     "stage": "node scripts/stage.ts",
-    "typecheck": "tsc --noEmit && tsc --noEmit -p src/web && tsc --noEmit -p extensions/memfs",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p src/web && tsc --noEmit -p extensions/portfolio",
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
     "lint": "oxlint",
