@@ -38,10 +38,23 @@ declare module "vscode-web/workbench" {
     open(workspace: IWorkspace, options?: { reuse?: boolean; payload?: object }): Promise<boolean>;
   }
 
+  export interface IDefaultEditor {
+    readonly viewColumn?: number;
+    readonly uri: UriComponents;
+    readonly options?: Record<string, unknown>;
+  }
+
+  export interface IDefaultLayout {
+    readonly editors?: readonly IDefaultEditor[];
+    readonly force?: boolean;
+  }
+
   export interface IWorkbenchConstructionOptions {
     readonly workspaceProvider?: IWorkspaceProvider;
     readonly additionalBuiltinExtensions?: readonly (string | UriComponents)[];
     readonly productConfiguration?: Record<string, unknown>;
+    readonly defaultLayout?: IDefaultLayout;
+    readonly configurationDefaults?: Record<string, unknown>;
   }
 
   export interface IDisposable {

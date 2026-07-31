@@ -15,8 +15,7 @@
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
     "lint": "oxlint",
-    "start": "pnpm run build && serve -l tcp://127.0.0.1:8080 .",
-    "preview": "pnpm run build && pnpm run stage && serve -l tcp://127.0.0.1:8080 dist-site",
+    "start": "pnpm run build && pnpm run stage && vite preview --outDir dist-site --host 127.0.0.1 --port 8080 --strictPort",
     "test": "pnpm run typecheck && pnpm run fmt:check && pnpm run lint"
   },
   "devDependencies": {
@@ -25,8 +24,8 @@
     "esbuild": "^0.28.1",
     "oxfmt": "^0.61.0",
     "oxlint": "^1.76.0",
-    "serve": "^14.2.6",
     "typescript": "^7.0.2",
+    "vite": "^8.1.5",
     "zod": "^4.4.3"
   },
   "devEngines": {

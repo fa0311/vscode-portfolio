@@ -1,5 +1,8 @@
 # vscode-web-memfs
 
+VS Code for the Web の中でポートフォリオを閲覧・編集できるポートフォリオサイト。
+中身(自己紹介・プロジェクト等)は `extensions/memfs/src/portfolio.ts` で定義され、起動時にメモリ上ワークスペース `memfs:/portfolio` としてシードされます。
+
 VS Code for the Web をブラウザ完結・完全オンメモリで動かす最小構成。
 サーバー処理なし(静的配信のみ)で、ワークスペースは `memfs:` スキームの RAM 上仮想ファイルシステム。ページをリロードすると全て消えます。
 
@@ -22,12 +25,11 @@ pnpm start        # ダウンロード(初回のみ) + ビルド + http://127.0.
 ```
 
 - `pnpm run build` — ビルドのみ(`fetch-vscode` → 拡張 → ブートストラップ)
-- `pnpm run preview` — デプロイ成果物(`dist-site/`)をそのまま配信して確認
 - `pnpm test` — 型チェック + `oxfmt --check` + `oxlint`
 - `pnpm run fmt` — oxfmt で整形(VS Code なら保存時に自動整形)
 - `VSCODE_VERSION=1.xx.x pnpm run fetch-vscode` — VS Code のバージョン固定
 
-ローカル配信は [serve](https://github.com/vercel/serve) を使用。エディタ連携は `.vscode/`(推奨拡張: [Oxc](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode)、TypeScript Native Preview)を参照。
+`pnpm start` はデプロイ成果物 `dist-site/` を `vite preview` でそのまま配信します(ローカルで見るもの = 本番に上がるもの)。URL リライトを行う配信系(例: vercel/serve の cleanUrls)は拡張ホスト iframe の `.html` をリダイレクトして起動を壊すため使わないこと。エディタ連携は `.vscode/`(推奨拡張: [Oxc](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode)、TypeScript Native Preview)を参照。
 
 URL パラメータ: `?folder=<uri>` / `?workspace=<uri>` / `?ew=true`(空ウィンドウ)
 

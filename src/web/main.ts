@@ -6,7 +6,7 @@
  */
 import { create, URI, type IWorkspace, type IWorkspaceProvider } from "vscode-web/workbench";
 
-const DEFAULT_FOLDER = "memfs:/sample";
+const DEFAULT_FOLDER = "memfs:/portfolio";
 
 class WorkspaceProvider implements IWorkspaceProvider {
   static fromLocation(): WorkspaceProvider {
@@ -51,6 +51,13 @@ const vscodeBaseUrl = new URL("./vscode-dist", document.baseURI).href;
 
 create(document.body, {
   workspaceProvider: WorkspaceProvider.fromLocation(),
+  // The memfs extension opens README.md itself once it has seeded the
+  // workspace. Opening it here via defaultLayout would deadlock on first
+  // visit: editor restore waits for the memfs provider, which only registers
+  // after startup finishes.
+  configurationDefaults: {
+    "workbench.startupEditor": "none",
+  },
   additionalBuiltinExtensions: [
     {
       scheme: memfsExtensionUrl.protocol.replace(/:$/, ""),
@@ -59,8 +66,8 @@ create(document.body, {
     },
   ],
   productConfiguration: {
-    nameShort: "VS Code Web (memfs)",
-    nameLong: "VS Code for the Web — in-memory workspace",
+    nameShort: "ふぁ | Portfolio",
+    nameLong: "ふぁ — Portfolio",
     // Serve the extension-host iframe and webviews from our own origin
     // instead of the default vscode-cdn.net template, so the site is
     // fully self-contained.
