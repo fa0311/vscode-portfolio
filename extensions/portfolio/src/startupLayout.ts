@@ -8,4 +8,5 @@ export async function applyStartupLayout(readme: vscode.Uri): Promise<void> {
     return;
   }
   await vscode.commands.executeCommand("markdown.showPreview", readme);
+  await vscode.commands.executeCommand("workbench.action.closeSidebar");
 }
