@@ -2,9 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <!-- Phones render the workbench at 65% so the UI chrome does not eat the
+         screen. Desktop browsers ignore this tag entirely. `window.zoomLevel`
+         cannot do this: the web build only reads it for the splash screen. -->
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+      content="width=device-width, initial-scale=0.65, maximum-scale=0.65, minimum-scale=0.65, user-scalable=no"
     />
     <title>ふぁ | Portfolio</title>
     <meta name="description" content="VS Code for the Web 上で動くポートフォリオ" />
