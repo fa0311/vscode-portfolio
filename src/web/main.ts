@@ -68,11 +68,11 @@ create(document.body, {
   productConfiguration: {
     nameShort: "ふぁ | Portfolio",
     nameLong: "ふぁ — Portfolio",
-    // Serve the extension-host iframe and webviews from our own origin
-    // instead of the default vscode-cdn.net template, so the site is
-    // fully self-contained.
+    // Serve the extension-host iframe from our own origin instead of the
+    // default vscode-cdn.net template. Webviews (markdown preview etc.) are
+    // NOT overridden: their bootstrap requires a per-webview subdomain
+    // (sha-256 origin check), which only the official wildcard CDN provides.
     webEndpointUrlTemplate: vscodeBaseUrl,
-    webviewContentExternalBaseUrlTemplate: `${vscodeBaseUrl}/out/vs/workbench/contrib/webview/browser/pre/`,
     // The Microsoft marketplace may not be used outside official products;
     // Open VSX is the compliant gallery for self-hosted builds.
     extensionsGallery: {
