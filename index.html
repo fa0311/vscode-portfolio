@@ -2,6 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <script>
+      // VS Code needs a secure context: without crypto.subtle the extension
+      // host iframe cannot start, so the memfs provider is never registered
+      // and the workspace fails to load. isSecureContext is the browser's own
+      // answer to that question — it already treats localhost as secure.
+      if (!isSecureContext && location.protocol === "http:") {
+        location.replace(location.href.replace(/^http:/, "https:"));
+      }
+    </script>
     <!-- Phones render the workbench at 65% so the UI chrome does not eat the
          screen. Desktop browsers ignore this tag entirely. `window.zoomLevel`
          cannot do this: the web build only reads it for the splash screen. -->
